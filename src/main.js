@@ -28,7 +28,6 @@ function pokemonCards(){
     pokemonCard.appendChild(pokemonNumber);
 
     rootElement.appendChild(pokemonCard);
-      
     console.log(pokemonCard);
       
   });
