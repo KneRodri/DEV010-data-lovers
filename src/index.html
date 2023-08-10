@@ -15,8 +15,14 @@
         <img class="pokebola-2" src="https://66.media.tumblr.com/9697ebbc4887dc57620c50a12f24c61d/tumblr_nc1rokF7r31s1rd1xo1_500.gif" alt="pokebola">
       </section>
       <nav>
-        <label for="elementos">Elementos</label>
-        <select name="elementos" id="elementos">
+        <section>
+          <span class="buscador">Buscador</span>
+          <input type="text" id="input"> 
+          <button id="btn-buscar">Buscar</button>
+        </section>
+        <section>
+        <label for="elementos">Tipos</label>
+        <select name="type" id="types">
           <option value="normal">Normal</option>
           <option value="fire">Fire</option>
           <option value="water">Water</option>
@@ -36,7 +42,11 @@
           <option value="steel">Steel</option>
           <option value="fairy">Fairy</option>
         </select>
-        <button id="btn-buscar">Buscar</button>
+        <button id="btn-buscarType">Buscar</button>
+        </section>
+        <section>
+
+        </section>
       </nav>
     </header>
     <div id="root"></div>
