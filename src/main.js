@@ -1,12 +1,14 @@
 
 import data from './data/pokemon/pokemon.js';
+import {busquedaNomNum, filtrarPorTipo} from './data.js';
 
 const rootElement = document.getElementById("root");
-function pokemonCards(){
-  const pokemonArray = data.pokemon;//data.pokemon accede a la matriz del objeto pokemon y se en la var pokemon Array
-  pokemonArray.forEach(pokemonInfo=>{
-    //Crear elementos HTML para guardar la informacion de cada pokemon
-    const pokemonCard = document.createElement('div'); //HTML
+
+function pokemonCards(pokemonArray){
+
+  pokemonArray.forEach(pokemonInfo =>{
+    
+    const pokemonCard = document.createElement('div'); //Crear elementos HTML para guardar la informacion de cada pokemon
     pokemonCard.classList.add('pokemon-container'); //CSS
 
     const pokemonImg = document.createElement('img'); //HTML
@@ -15,7 +17,7 @@ function pokemonCards(){
     pokemonCard.appendChild(pokemonImg);
 
     const pokemonName = document.createElement('h3');//HTML
-    pokemonName.classList.add('pokemon-name'); //CSS
+    pokemonName.classList.add('pokemon-name');
     pokemonName.textContent = pokemonInfo.name;
     pokemonCard.appendChild(pokemonName);
 
@@ -25,7 +27,35 @@ function pokemonCards(){
     pokemonCard.appendChild(pokemonNumber);
     
     rootElement.appendChild(pokemonCard);
-    console.log(pokemonCard);
   });
 }
-document.addEventListener('DOMContentLoaded', pokemonCards);
+document.addEventListener('DOMContentLoaded', () => {
+  pokemonCards(data.pokemon);
+});
+
+const inputElement = document.getElementById("input");
+const btnBuscar =  document.getElementById("btn-buscar");
+
+btnBuscar.addEventListener("click", () => {
+  const recibeNomNum = inputElement.value;
+  const busquedaInfo = busquedaNomNum(data, recibeNomNum);
+  rootElement.innerHTML = "";
+
+  if (busquedaInfo) {
+    pokemonCards([busquedaInfo]);
+  } else {
+    console.error("El Pokemón que buscas no está disponible");
+  }
+});
+
+const btnType = document.getElementById("btn-buscarType");
+const tipoDeSeleccion = document.getElementById("types");
+
+btnType.addEventListener("click", () => {
+  const seleccion = tipoDeSeleccion.value;
+  const filtrarPokemon = filtrarPorTipo(data, (pokemon) => {
+    return pokemon.type.includes(seleccion);
+  });
+  rootElement.innerHTML = "";
+  pokemonCards(filtrarPokemon);
+});
