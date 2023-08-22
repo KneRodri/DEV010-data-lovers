@@ -11,5 +11,23 @@ export function filtrarPorTipo (data, condition) {
   });
 }
 
+export function sortData(data, sortBy, sortOrder) {
+  const sortedData = [...data.pokemon]; //Clonar el arreglo no modifica el original
+
+  sortedData.sort((a, b) => {
+    const valueA = a[sortBy];
+    const valueB = b[sortBy];
+
+    if (sortOrder === 'asc') {
+      return valueA.localeCompare(valueB);
+    } else if (sortOrder === 'desc') {
+      return valueB.localeCompare(valueA);
+    }
+  });
+
+  return sortedData;
+}
+
+
 
 

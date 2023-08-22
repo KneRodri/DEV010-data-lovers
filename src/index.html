@@ -7,48 +7,57 @@
   </head>
   <body>
     <header>
-
-      <h1>
+      <section>
         <img class="pokemon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt="pokemon">
-      </h1>
+      </section>
       <section class="pokebolas">
         <img class="pokebola-1" src="https://66.media.tumblr.com/9697ebbc4887dc57620c50a12f24c61d/tumblr_nc1rokF7r31s1rd1xo1_500.gif" alt="pokebola">
         <img class="pokebola-2" src="https://66.media.tumblr.com/9697ebbc4887dc57620c50a12f24c61d/tumblr_nc1rokF7r31s1rd1xo1_500.gif" alt="pokebola">
       </section>
+      <h1>
+       Estás en el lugar indicado para buscar información <br> y convertirte en un maestro Pokémon.
+      </h1>
+    </header>  
       <nav>
-        <section>
-        <label for="buscador">Buscador</label>
-        <input type="text" id="input">
-        <button id="btn-buscar">Buscar</button>
+        <section class="nomNum">
+          <textarea name="input" id="input" cols="50" rows="1" placeholder="Escribe el nombre o número de pokémon, ej: 007"></textarea>
+          <button id="btn-buscar">Buscar</button>
+        </section> 
+
+        <section class="elementos">
+          <label for="elementos">Tipos</label> 
+          <select name="type" id="types">
+            <optgroup label="Tipos de Pokémon">
+              <option disabled selected hidden>Seleccione un tipo</option>
+              <option value="fire">Fuego</option>
+              <option value="normal">Normal</option>
+              <option value="water">Agua</option>
+              <option value="grass">Planta</option>
+              <option value="electric">Eléctrico</option>
+              <option value="ice">Hielo</option>
+              <option value="fighting">Peleador</option>
+              <option value="poison">Veneno</option>
+              <option value="ground">Tierra</option>
+              <option value="flying">Volador</option>
+              <option value="psychic">Psíquico</option>
+              <option value="bug">Insecto</option>
+              <option value="rock">Roca</option>
+              <option value="ghost">Fantasma</option>
+              <option value="dark">Siniestro</option>
+              <option value="dragon">Dragón</option>
+              <option value="steel">Acero</option>
+              <option value="fairy">Hada</option>
+            </optgroup>  
+          </select>
+          <button id="btn-buscarType">Buscar</button>
         </section>
         <section>
-          <label for="elementos">Tipos</label>
-          <select name="type" id="types">
-            <option value="normal">Normal</option>
-            <option value="fire">Fire</option>
-            <option value="water">Water</option>
-            <option value="grass">Grass</option>
-            <option value="electric">Electric</option>
-            <option value="ice">Ice</option>
-            <option value="fighting">Fighting</option>
-            <option value="poison">Poison</option>
-            <option value="ground">Ground</option>
-            <option value="flying">Flying</option>
-            <option value="psychic">Psychic</option>
-            <option value="bug">Bug</option>
-            <option value="rock">Rock</option>
-            <option value="ghost">Ghost</option>
-            <option value="dark">Dark</option>
-            <option value="dragon">Dragon</option>
-            <option value="steel">Steel</option>
-            <option value="fairy">Fairy</option>
-        </select>
-        <button id="btn-buscarType">Buscar</button>
+          <button id="btn-ordenar-nombre">Ordenar por nombre</button>
+          <button id="btn-ordenar-numero">Limpiar</button>
         </section>
       </nav>
-    </header>
     <div id="root"></div>
-
+    <div id="estadisticas"></div>
     <script src="pokemon.js" type="module"></script>
     <script src="main.js" type="module"></script>
   </body>

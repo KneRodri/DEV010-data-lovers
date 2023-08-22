@@ -1,6 +1,5 @@
-
 import data from './data/pokemon/pokemon.js';
-import {busquedaNomNum, filtrarPorTipo} from './data.js';
+import {busquedaNomNum, filtrarPorTipo, sortData} from './data.js';
 
 const rootElement = document.getElementById("root");
 
@@ -25,10 +24,35 @@ function pokemonCards(pokemonArray){
     pokemonNumber.classList.add('pokemon-number');
     pokemonNumber.textContent = `#${pokemonInfo.num}`;
     pokemonCard.appendChild(pokemonNumber);
-    
+
+    pokemonCard.addEventListener('click', async () => { //asincrónica con await
+      const pokemonDetails = await busquedaNomNum(data, pokemonInfo.num);
+      cardDetalladas(pokemonDetails);
+    });
     rootElement.appendChild(pokemonCard);
-  });
+  });  
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pokemonCards(data.pokemon);
+});
+
+function cardDetalladas(pokemonInfo){
+
+  const modal = document.createElement("div");
+  modal.classList.add('pokemon-modal');
+
+  const contenidoModal = `
+      <h2>${pokemonInfo.name}</h2>
+      <p>Número: ${pokemonInfo.num}</p>
+      <p>Tipo: ${pokemonInfo.type.join(', ')}</p>
+      <p>
+    `;
+  const ventanaEmerge = window.open('', '_blank', 'width=200,height=300');//una nueva ventana,se abre en una pestaña.
+  ventanaEmerge.document.write(`<html><body>${contenidoModal}</body></html>`);
+  ventanaEmerge.document.close();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   pokemonCards(data.pokemon);
 });
@@ -43,8 +67,13 @@ btnBuscar.addEventListener("click", () => {
 
   if (busquedaInfo) {
     pokemonCards([busquedaInfo]);
-  } else {
-    console.error("El Pokemón que buscas no está disponible");
+  } 
+  if (!isNaN(recibeNomNum)){
+    const num = parseInt(recibeNomNum);
+    if (num < 1 || num > 251){ //verifica si el número está en el rango
+      alert("Ingrese un número válido del 1 al 251");
+    } else { throw new TypeError("Error"); //revisar
+    }
   }
 });
 
@@ -58,4 +87,18 @@ btnType.addEventListener("click", () => {
   });
   rootElement.innerHTML = "";
   pokemonCards(filtrarPokemon);
+});
+
+const btnOrdenarNombre = document.getElementById('btn-ordenar-nombre');
+btnOrdenarNombre.addEventListener('click', () => {
+  const pokemonOrdenados = sortData(data, 'name', 'asc');
+  rootElement.innerHTML = '';
+  pokemonCards(pokemonOrdenados);
+});
+
+const btnOrdenarNumero = document.getElementById('btn-ordenar-numero');
+btnOrdenarNumero.addEventListener('click', () => {
+  const pokemonesOrdenados = sortData(data, 'num', 'asc',);
+  rootElement.innerHTML = '';
+  pokemonCards(pokemonesOrdenados);
 });
