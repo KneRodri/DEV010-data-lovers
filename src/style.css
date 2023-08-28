@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&family=Sarabun:wght@100;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;500&family=Sarabun:wght@100;300;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Handjet:wght@300;500&family=Sarabun:wght@100;300;700&family=Unica+One&display=swap');
+body {
+    background-image: url(https://pbs.twimg.com/ext_tw_video_thumb/1548081971045142530/pu/img/BD7UoqShVKLH7T7x.jpg:large);
+}
+
+.pokemon{
+    width: 30%;
+    position: absolute;
+    left: 450px;
+    top: 30px;
+}
+
+
+.pokebola-1{
+    width: 10%;
+    margin: 21px 0 40px 95px;
+
+}
+
+.pokebola-2{
+    width: 10%;
+    margin: 20px;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+}
+
+h1 {
+    font-family:'Handjet';
+    font-size: 25px;
+    text-align: center;
+}
+
+
+.nomNum {
+    display: inline;
+}
+
+textarea {
+    margin: 20px;
+    position: relative;
+    left: 420px;
+}
+
+#input {
+    font-family: 'Handjet';
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    height: 30px;
+    resize: none;
+
+}
+
+#btn-buscar {
+    position: relative;
+    left: 870px;
+    bottom: 55px;
+    padding: 10px;
+    height: 20px;
+    font-family:'Handjet';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+
+    
+}
+.elementos {
+    font-family:'Handjet';
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    position: relative;
+    bottom: 30px;
+    width: 95vw;
+}
+
+.elementos label {
+    margin-right: 10px;
+    font-size: 25px;
+
+}
+
+#types {
+    font-family:'Handjet';
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+#btn-buscarType {
+    font-family:'Handjet';
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+#root {
+    text-align: center;
+    margin: 50px;
+}
+
+.pokemon-container {
+    border: 2px solid black;
+    display: inline-block;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 12%;
+    height: 250px;
+    text-align: center;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    border-color: white;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    
+}
+.pokemon-img{
+    width: 135px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.pokemon-name {
+    font-family: 'Handjet';
+    font-size: 25px;
+    text-align: center;
+    border-radius: 8px;
+    color: black;
+    padding: 5px 2px;
+    text-transform: capitalize;
+}
+
+.pokemon-number {
+    font-family: 'Forum';
+    font-size: 25px;
+    position: relative;
+    bottom: 10px;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+
+
+    
+
+}
+.btnOrdenarLimpiar{
+    position: relative;
+    left: 440px;
+
+}
+
+#btn-ordenar-asc{
+    font-family: 'Handjet';
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    
+    
+}
+
+#btn-ordenar-desc{
+    font-family: 'Handjet';
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+#btn-ordenar-numero{
+    font-family: 'Handjet';
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    
+}
+
+.modal-content {
+    background-color: #DAFDFC;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    font-family: 'Handjet' ;
+    font-size: 25px;
+    
+}
+
+
+.close-modal{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+#modal-pokemon-name {
+    text-transform: capitalize;
+}
+
+#modal-pokemon-details {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media  (max-width: 1000px){
+.pokemon {
+    position: absolute;
+    left: 200px;
+}
+
+.pokebola-2{
+    position: absolute;
+    right: 100px;
+    
+}
+#input{
+    
+    left: 50px;
+
+}
+#btn-buscar{
+
+    left: 470px;
+}
+.btnOrdenarLimpiar{
+    left: 50px;
+}
+
+.pokemon-container {
+    width: 30%;
+    margin: 5px;
+}
+.modal-content {
+    width: 40%;
+    font-size: 18px;
+}
+}
