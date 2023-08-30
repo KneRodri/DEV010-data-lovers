@@ -73,7 +73,7 @@ describe('busquedaNomNum', () => {
       ]
     };
     const sortedData = sortData(unSortedData, 'name', 'asc');
-    expect(sortedData[0].name).toMatch('Bulbasaur');
+    expect(sortedData[0].name).toBe('Bulbasaur');
     expect(sortedData[1].name).toBe('Charizard');
     expect(sortedData[2].name).toBe('Pikachu');
   });

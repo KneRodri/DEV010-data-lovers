@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Handjet:wght@300;500&family=Sarabun:wght@100;300;700&family=Unica+One&display=swap');
 body {
     background-image: url(https://pbs.twimg.com/ext_tw_video_thumb/1548081971045142530/pu/img/BD7UoqShVKLH7T7x.jpg:large);
+    max-width: 100%; /*Determina un ancho maximo*/
+    overflow-x: hidden; /* Esto oculta el desplazamiento horizontal */
+
 }
 
 .pokemon{
@@ -108,7 +111,7 @@ textarea {
     display: inline-block;
     flex-wrap: wrap;
     margin: 10px;
-    width: 12%;
+    width: 15%;
     height: 250px;
     text-align: center;
     background-color: antiquewhite;
@@ -134,13 +137,14 @@ textarea {
     color: black;
     padding: 5px 2px;
     text-transform: capitalize;
+    bottom: 12px;
 }
 
 .pokemon-number {
     font-family: 'Forum';
     font-size: 25px;
     position: relative;
-    bottom: 10px;
+    bottom: 18px;
 }
 
 #modal {
@@ -242,11 +246,16 @@ textarea {
 }
 
 .pokemon-container {
-    width: 30%;
+    width: 35%;
     margin: 5px;
 }
 .modal-content {
     width: 40%;
     font-size: 18px;
+}
+
+.pokemon-name{
+    position: relative;
+    bottom: 12px;
 }
 }

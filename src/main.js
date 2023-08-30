@@ -6,7 +6,6 @@ import {busquedaNomNum, filtrarPorTipo, sortData} from './data.js';
 
 const rootElement = document.getElementById("root");
 function pokemonCards(pokemonArray){
-  //const pokemonArray = data.pokemon;//data.pokemon accede a la matriz del objeto pokemon y se en la var pokemon Array
   pokemonArray.forEach(pokemonInfo=>{
     //Crear elementos HTML para guardar la informacion de cada pokemon
     const pokemonCard = document.createElement('div'); //HTML
@@ -40,7 +39,7 @@ function pokemonCards(pokemonArray){
 document.addEventListener('DOMContentLoaded', () => {
   pokemonCards(data.pokemon);
 });
-
+//FUNCION PARA EL DETALLE DE LAS CARTAS 
 function cardDetalladas(pokemonInfo) {
   const modal = document.getElementById('modal');
   const modalName = document.getElementById('modal-pokemon-name');
@@ -77,6 +76,8 @@ btnBuscar.addEventListener("click", () => {
 
   const busquedaInfo = busquedaNomNum(data, recibeNomNum);
   rootElement.innerHTML = "";
+  inputElement.value = "";
+
   if (busquedaInfo) {
     pokemonCards([busquedaInfo]);
   }
@@ -88,17 +89,20 @@ btnBuscar.addEventListener("click", () => {
       const formatoDeNum = num.toString().padStart(3, "00");
       const busquedaInfo = busquedaNomNum(data, formatoDeNum);
       if (busquedaInfo){
-        rootElement.innerHTML = ""
         pokemonCards([busquedaInfo]);
-      } else {
-        alert("No se encontro ningun Pokémon con ese numero")
       }
     }
   }
   
 });
   
-//else{ TypeError("El pokemon que buscaste no esta disponible")
+inputElement.addEventListener("keydown", function(event){
+  if(event.key === "Enter"){
+    event.preventDefault();
+  }
+})
+
+  
   
 //BUSQUEDA POR ELEMENTO
 const btnType = document.getElementById("btn-buscarType");
